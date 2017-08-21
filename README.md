@@ -142,7 +142,7 @@ Upload the following files to your webserver:
 
 1. Change the links from lines 18-20 to match your website.
 
-2. Change "yourdomain.com" on line 33 to your actual domain.
+2. Change "yoursite.com" on line 33 to your actual domain.
 
 3. Change the link on line 65 to match your website.
 
