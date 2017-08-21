@@ -14,7 +14,7 @@ Public Class Form3
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim address As String = "https://pastebin.com/raw/fusu14zA"
+        Dim address As String = "https://pastebin.com/raw/fusu14zA" ' Make this your changes.txt
         Dim client As WebClient = New WebClient()
         Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
         RichTextBox1.Text = reader.ReadToEnd
