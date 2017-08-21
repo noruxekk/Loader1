@@ -233,6 +233,10 @@ ___
 
 A: This is a common mistake. The cheat's dll filepath MUST have a trailing \ Meaning you type out the path that you want, then add a \ to the end. (Example of wrong: pszLibFileRemote = "C:\temp\Nova\dll" + filename :::: Example of right: pszLibFileRemote = "C:\temp\Nova\dll\" + filename). That MUST be there for both the injection of the .dll and for the downloading of the .dll.
 
+**Q: How do I make paid usergroups on MyBB?**
+
+A: https://community.mybb.com/thread-123597.html ALSO if you wanna be a real meme and need invite codes: https://community.mybb.com/thread-113141.html
+
 ## Credits
 
 [JackkTutorials](https://www.youtube.com/channel/UC64x_rKHxY113KMWmprLBPA) for the HWID creation and encryption code.
