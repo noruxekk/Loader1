@@ -206,100 +206,135 @@ Public Class Form1
     Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
         If login = 1 Then
             login = 0
-            Label6.Text = "Current Status: Checking password"
-            If WebBrowser1.DocumentText.Contains("<p>You have successfully been logged in") Then
-                Label6.Text = "Current Status: Password accepted"
-                confirm = 1
-            Else
-                Label6.ForeColor = Color.Red
-                Label6.Text = "Current Status: Password rejected!"
-                WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
-                MsgBox("Error: Username or password is incorrect", vbCritical)
-                Thread.Sleep(250)
-                Application.Restart()
-                Button1.Enabled = True
-            End If
+            Try
+                Label6.Text = "Current Status: Checking password"
+                If WebBrowser1.DocumentText.Contains("<p>You have successfully been logged in") Then
+                    Label6.Text = "Current Status: Password accepted"
+                    confirm = 1
+                Else
+                    Label6.ForeColor = Color.Red
+                    Label6.Text = "Current Status: Password rejected!"
+                    WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
+                    MsgBox("Error: Username or password is incorrect", vbCritical)
+                    Thread.Sleep(250)
+                    Application.Restart()
+                    Button1.Enabled = True
+                End If
+            Catch ex As Exception
+                MsgBox("Error: Forum login not working. Yell at the 'dev' until they learn to read the README.md", vbCritical)
+            End Try
         End If
     End Sub
     ' Status check
-    Private Sub WebBrowser2_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
+        Private Sub WebBrowser2_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
         If confirm = 1 Then
             confirm = 0
-            Label6.Text = "Current Status: Checking account status"
-            If WebBrowser2.DocumentText.Contains("User is premium") Then
-                Label6.Text = "Current Status: Group accepted"
-                confirmhwid = 1
-            ElseIf WebBrowser2.DocumentText.Contains("User is not premium") Then
-                Label6.ForeColor = Color.Red
-                Label6.Text = "Current Status: User is not premium!"
-                WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
-                WebBrowser2.Navigate("http://localhost/usercheck.php")
-                MsgBox("Error: User is not premium! Visit the forums to purchase a subscription.", vbCritical)
-                Thread.Sleep(250)
-                Application.Restart()
-                Button1.Enabled = True
-            ElseIf WebBrowser2.DocumentText.Contains("banned") Then
-                Label6.ForeColor = Color.Red
-                Label6.Text = "Current Status: User is banned!"
-                MsgBox("Error: User is banned! Visit the forums to learn why.", vbCritical)
-                Thread.Sleep(250)
-                Application.Exit()
-            ElseIf WebBrowser2.DocumentText.Contains("No user") Then
-                Label6.ForeColor = Color.Red
-                Label6.Text = "Current Status: User is not found!"
-                WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
-                WebBrowser2.Navigate("http://localhost/usercheck.php")
-                MsgBox("Error: No user with that name! Please make sure it is spelt correctly.", vbCritical)
-                Thread.Sleep(250)
-                Application.Restart()
-                Button1.Enabled = True
-            End If
+            Try
+                Label6.Text = "Current Status: Checking account status"
+
+                If WebBrowser2.DocumentText.Contains("2") Then ' Check if they are "registered"
+                    Label6.Text = "Current Status: User is not premium"
+                    Label6.ForeColor = Color.Red
+                    confirmhwid = 0
+                Else
+                    If WebBrowser2.DocumentText.Contains("7") Then ' Check if they are "banned"
+                        Label6.Text = "Current Status: User is banned"
+                        Label6.ForeColor = Color.Red
+                        confirmhwid = 0
+                    Else
+                        If WebBrowser2.DocumentText.Contains("8") Then ' Check if they are "Premium CS:GO"
+                            Label6.Text = "Current Status: Group accepted"
+                            MsgBox("Premium CS:GO")
+                            confirmhwid = 1
+                        Else
+                            If WebBrowser2.DocumentText.Contains("10") Then ' Check if they are "Premium CS:GO Beta"
+                                Label6.Text = "Current Status: Group accepted"
+                                MsgBox("Premium CS:GO Beta")
+                                confirmhwid = 1
+                            Else
+                                If WebBrowser2.DocumentText.Contains("9") Then ' Check if they are "Premium CS:GO Lite"
+                                    Label6.Text = "Current Status: Group accepted"
+                                    MsgBox("Premium CS:GO Lite")
+                                    confirmhwid = 1
+                                Else
+                                    If WebBrowser2.DocumentText.Contains("11") Then ' Check if they are "Premium Garry's Mod"
+                                        Label6.Text = "Current Status: Group accepted"
+                                        MsgBox("Premium Garry's Mod")
+                                        confirmhwid = 1
+                                    Else
+                                        If WebBrowser2.DocumentText.Contains("4") Then ' Check if they are "Admin"
+                                            Label6.Text = "Current Status: Group accepted"
+                                            MsgBox("Administrator")
+                                            confirmhwid = 1
+                                        End If
+                                    End If
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            Catch ex As Exception
+                MsgBox("Error: usercheck_get.php not working. Yell at the 'dev' until they learn to read the README.md", vbCritical)
+            End Try
         End If
+
+        'Admin---------------------4
+        'Premium Garry's Mod-------11
+        'Premium CS:GO Lite--------9
+        'Premium CS:GO Beta--------10
+        'Premium CS:GO-------------8
+        'Banned--------------------7
+        'Not-----------------------2
+
     End Sub
     ' HWID check
-    Private Sub WebBrowser3_DocumentCompleted_1(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser3.DocumentCompleted
+        Private Sub WebBrowser3_DocumentCompleted_1(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser3.DocumentCompleted
         If confirmhwid = 1 Then
             confirmhwid = 0
-            Label6.Text = "Current Status: Checking HWID"
-            If WebBrowser3.DocumentText.Contains("HWID is correct") Then
-                Label6.Text = "Current Status: HWID accepted!"
+            Try
+                Label6.Text = "Current Status: Checking HWID"
+                If WebBrowser3.DocumentText.Contains("HWID is correct") Then
+                    Label6.Text = "Current Status: HWID accepted!"
 
-                If (CheckBox1.Checked = True) Then
-                    My.Settings.check = True
-                ElseIf (CheckBox1.Checked = False) Then
-                    My.Settings.check = False
+                    If (CheckBox1.Checked = True) Then
+                        My.Settings.check = True
+                    ElseIf (CheckBox1.Checked = False) Then
+                        My.Settings.check = False
+                    End If
+
+                    My.Settings.username = TextBox1.Text
+                    My.Settings.password = TextBox2.Text
+                    My.Settings.Save()
+                    TextBox1.Text = ""
+                    TextBox2.Text = ""
+                    TextBox1.Focus()
+                    Form3.Show()
+                    Me.Hide()
+                    Button1.Enabled = True
+                ElseIf WebBrowser3.DocumentText.Contains("HWID is not correct") Then
+                    WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
+                    WebBrowser2.Navigate("http://localhost/usercheck.php")
+                    WebBrowser3.Navigate("http://localhost/hwid.php")
+                    Label6.ForeColor = Color.Red
+                    Label6.Text = "Current Status: HWID rejected!"
+                    MsgBox("Error: HWID is incorrect", vbCritical)
+                    Thread.Sleep(250)
+                    Application.Restart()
+                    Button1.Enabled = True
+                ElseIf WebBrowser3.DocumentText.Contains("") Then
+                    WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
+                    WebBrowser2.Navigate("http://localhost/usercheck.php")
+                    WebBrowser3.Navigate("http://localhost/hwid.php")
+                    Label6.ForeColor = Color.Red
+                    Label6.Text = "Current Status: HWID rejected!"
+                    MsgBox("Error: No user with that name (HWID)", vbCritical)
+                    Thread.Sleep(250)
+                    Application.Restart()
+                    Button1.Enabled = True
                 End If
-
-                My.Settings.username = TextBox1.Text
-                My.Settings.password = TextBox2.Text
-                My.Settings.Save()
-                TextBox1.Text = ""
-                TextBox2.Text = ""
-                TextBox1.Focus()
-                Form3.Show()
-                Me.Hide()
-                Button1.Enabled = True
-            ElseIf WebBrowser3.DocumentText.Contains("HWID is not correct") Then
-                WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
-                WebBrowser2.Navigate("http://localhost/usercheck.php")
-                WebBrowser3.Navigate("http://localhost/hwid.php")
-                Label6.ForeColor = Color.Red
-                Label6.Text = "Current Status: HWID rejected!"
-                MsgBox("Error: HWID is incorrect", vbCritical)
-                Thread.Sleep(250)
-                Application.Restart()
-                Button1.Enabled = True
-            ElseIf WebBrowser3.DocumentText.Contains("") Then
-                WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
-                WebBrowser2.Navigate("http://localhost/usercheck.php")
-                WebBrowser3.Navigate("http://localhost/hwid.php")
-                Label6.ForeColor = Color.Red
-                Label6.Text = "Current Status: HWID rejected!"
-                MsgBox("Error: No user with that name (HWID)", vbCritical)
-                Thread.Sleep(250)
-                Application.Restart()
-                Button1.Enabled = True
-            End If
+            Catch ex As Exception
+                MsgBox("Error: hwid_get.php not working. Yell at the 'dev' until they learn to read the README.md", vbCritical)
+            End Try
         End If
     End Sub
     ' Login fix
