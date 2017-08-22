@@ -173,16 +173,29 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Button1.Enabled = False
         login = 1
-        WebBrowser1.Document.GetElementById("username").SetAttribute("value", TextBox1.Text)
-        WebBrowser1.Document.GetElementById("password").SetAttribute("value", TextBox2.Text)
-        WebBrowser1.Document.GetElementById("submit").InvokeMember("click")
 
-        WebBrowser2.Document.GetElementById("username").SetAttribute("value", TextBox1.Text)
-        WebBrowser2.Document.GetElementById("submit").InvokeMember("click")
+        Try
+            WebBrowser1.Document.GetElementById("username").SetAttribute("value", TextBox1.Text)
+            WebBrowser1.Document.GetElementById("password").SetAttribute("value", TextBox2.Text)
+            WebBrowser1.Document.GetElementById("submit").InvokeMember("click")
+        Catch
+            MsgBox("Error: Login function not setup right. Yell at the 'dev' until he figures out how to read the README.md", vbCritical)
+        End Try
+    
+        Try
+            WebBrowser2.Document.GetElementById("username").SetAttribute("value", TextBox1.Text)
+            WebBrowser2.Document.GetElementById("submit").InvokeMember("click")
+        Catch
+            MsgBox("Error: Usercheck function not setup right. Yell at the 'dev' until he figures out how to read the README.md", vbCritical)
+        End Try
 
-        WebBrowser3.Document.GetElementById("username").SetAttribute("value", TextBox1.Text)
-        WebBrowser3.Document.GetElementById("hwidin").SetAttribute("value", txtHWID.Text)
-        WebBrowser3.Document.GetElementById("submit").InvokeMember("click")
+        Try
+            WebBrowser3.Document.GetElementById("username").SetAttribute("value", TextBox1.Text)
+            WebBrowser3.Document.GetElementById("hwidin").SetAttribute("value", txtHWID.Text)
+            WebBrowser3.Document.GetElementById("submit").InvokeMember("click")
+        Catch
+            MsgBox("Error: HWID function not setup right. Yell at the 'dev' until he figures out how to read the README.md", vbCritical)
+        End Try
     End Sub
 
     ' Exit button
