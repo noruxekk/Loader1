@@ -239,7 +239,7 @@ A: https://community.mybb.com/thread-123597.html ALSO if you wanna be a real mem
 
 ## Credits
 
-[JackkTutorials](https://www.youtube.com/channel/UC64x_rKHxY113KMWmprLBPA) for the HWID creation and encryption code.
+[JackkTutorials](https://www.youtube.com/channel/UC64x_rKHxY113KMWmprLBPA) for the [HWID creation and encryption code.](https://www.youtube.com/watch?v=CBe-gQiO-dA)
 
 ## Possible Updates
 
