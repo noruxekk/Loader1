@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
 	// Outputting the rows
 	while($row = $result->fetch_assoc()) {
 		
-		echo $row['usergroup'];
+		echo $row['usergroup'] . ",";
 		echo $row['additionalgroups'];
 				
 	}
