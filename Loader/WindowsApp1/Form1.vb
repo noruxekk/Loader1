@@ -59,7 +59,7 @@ Public Class Form1
 
         'Local Version
         Dim currentVerison As String
-        currentVerison = "1.0.1.0"
+        currentVerison = "1.0.0.0"
 
         'Web Version
         Dim address As String = "http://localhost/version.txt"
