@@ -23,9 +23,7 @@ Public Class Form3
 
         ListBox1.Items.Add("CS:GO - Main Build") '0
         ListBox1.Items.Add("CS:GO - Lite Build") '1
-        ListBox1.Items.Add("CS:GO - Beta Build") '2
-        ListBox1.Items.Add("CS:GO - Private Build") '3
-        ListBox1.Items.Add("Garry's Mod Bypass") '4
+        ListBox1.Items.Add("Custom Injector") '2
 
         'Generate HWID
         Dim hw As New clsComputerInfo
