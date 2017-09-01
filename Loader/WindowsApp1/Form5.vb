@@ -107,14 +107,8 @@ Public Class Form5
             exe = "csgo"
             dll = "http://localhost/ayyware_lite.dll" ' Lite build
         ElseIf (Form3.ListBox1.SelectedIndex = 2) Then
-            exe = "csgo"
-            dll = "http://localhost/ayyware_beta.dll" ' Beta Build
-        ElseIf (Form3.ListBox1.SelectedIndex = 3) Then
-            exe = "csgo"
-            dll = "http://localhost/ayyware_private.dll" ' Private Build
-        ElseIf (Form3.ListBox1.SelectedIndex = 4) Then
-            exe = "hl2"
-            dll = "http://localhost/gmod_bypass.dll" ' gmod bypass
+            Form4.Show()
+            Me.Close()
         End If
 
         Label1.Text = "Waiting for " + exe + ".exe"
