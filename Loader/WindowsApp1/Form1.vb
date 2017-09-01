@@ -217,7 +217,6 @@ Public Class Form1
                     WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
                     MsgBox("Error: Username or password is incorrect", vbCritical)
                     Thread.Sleep(250)
-                    Application.Restart()
                     Button1.Enabled = True
                 End If
             Catch ex As Exception
@@ -319,7 +318,6 @@ Public Class Form1
                     Label6.Text = "Current Status: HWID rejected!"
                     MsgBox("Error: HWID is incorrect", vbCritical)
                     Thread.Sleep(250)
-                    Application.Restart()
                     Button1.Enabled = True
                 ElseIf WebBrowser3.DocumentText.Contains("") Then
                     WebBrowser1.Navigate("http://localhost/mybb/member.php?action=login")
@@ -329,7 +327,6 @@ Public Class Form1
                     Label6.Text = "Current Status: HWID rejected!"
                     MsgBox("Error: No user with that name (HWID)", vbCritical)
                     Thread.Sleep(250)
-                    Application.Restart()
                     Button1.Enabled = True
                 End If
             Catch ex As Exception
