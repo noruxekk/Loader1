@@ -52,7 +52,7 @@ Public Class Form1
         End If
 
         If (ProgressBar1.Value >= 50) Then
-            Label1.Text = "Status: Checking system"
+            Label1.Text = "Status: Checking system status"
 
             If My.Computer.FileSystem.FileExists(TextBox1.Text) Then
 
@@ -78,15 +78,10 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim appPath As String = My.Application.Info.DirectoryPath
-
-        'MsgBox("Please put the file in " + appPath + "\1000.exe. Please rename if needed. Hit okay when ready")
-
         Timer1.Enabled = True
-
         If (button = 1) Then
             Button1.Enabled = False
         End If
-
         If (button = 0) Then
             Button1.Text = "Start"
         End If
