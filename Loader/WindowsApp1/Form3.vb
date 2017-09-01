@@ -48,7 +48,7 @@ Public Class Form3
         Timer2.Interval = 1500
         online = 2
 
-        Label2.Text = "Loader Version: 1.0.1.0"
+        Label2.Text = "Loader Version: 1.0.0.0"
         clockon = 1
         Timer2.Start()
         Timer3.Start()
