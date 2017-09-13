@@ -357,27 +357,26 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        If (updateneeded = 1) Then
-            Timer2.Stop()
-            Dim exePath As String = Application.ExecutablePath()
-            My.Computer.FileSystem.WriteAllText("c:\temp\nova\Nova.Hook.Path", exePath, False)
-            Me.Hide()
-
-            Dim appPath As String = My.Application.Info.DirectoryPath
-
-            If My.Computer.FileSystem.FileExists(appPath + "\Updater.exe") Then
-                Process.Start(appPath + "\Updater.exe")
-                Application.Exit()
-            Else
-                My.Computer.Network.DownloadFile("http://localhost/Updater.exe", appPath + "\Updater.exe")
-                Process.Start(appPath + "\Updater.exe")
-                Application.Exit()
-            End If
-        Else
-            Timer2.Stop()
-        End If
-    End Sub
+    ' This is the updater script. Un-comment it if you want the update function. It's kind of useless in my opinion UNLESS you are doing more than just CS:GO cheats.
+    'Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+    '    If (updateneeded = 1) Then
+    '        Timer2.Stop()
+    '        Dim exePath As String = Application.ExecutablePath()
+    '        My.Computer.FileSystem.WriteAllText("c:\temp\nova\Nova.Hook.Path", exePath, False)
+    '        Me.Hide()
+    '        Dim appPath As String = My.Application.Info.DirectoryPath
+    '        If My.Computer.FileSystem.FileExists(appPath + "\Updater.exe") Then
+    '            Process.Start(appPath + "\Updater.exe")
+    '            Application.Exit()
+    '        Else
+    '            My.Computer.Network.DownloadFile("http://localhost/Updater.exe", appPath + "\Updater.exe")
+    '            Process.Start(appPath + "\Updater.exe")
+    '            Application.Exit()
+    '        End If
+    '    Else
+    '        Timer2.Stop()
+    '    End If
+    'End Sub
 End Class
 
 '-----------------------------------------------------
