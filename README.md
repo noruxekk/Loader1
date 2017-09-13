@@ -152,6 +152,8 @@ Upload the following files to your webserver:
 
 6. Change the domains on the following lines: 203, 222, 223, 237, 238, 270-272, 280-282, 328.
 
+7. If you want the automatic update function, uncomment out Timer2_tick's sub. PLEASE NOTE some users are experiencing issues where they cannot get out of an auto update loop. I am too lazy to fix this issue, I was given code but I did not have the issue myself to start so I could not confirm if it was a fix or not. If you are stuck in an update loop, just take 15 minutes and try and fix it instead of spamming my Discord server, snapchat and steam.
+
 **Goto Form2.vb**
 
 1. Change localhost to your domain
