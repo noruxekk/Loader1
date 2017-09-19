@@ -164,8 +164,6 @@ Upload the following files to your webserver:
 
 2. Add or remove whatever cheats you want to support (Currently lines 24-28 BUT is not limited to only 5)
 
-3. Change the group numbers to match your website
-
 **Goto Form5.vb**
 
 1. Change lines 103-118 to match your setup for what cheats you wish to support
