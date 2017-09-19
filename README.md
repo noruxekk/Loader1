@@ -126,15 +126,13 @@ Upload the following files to your webserver:
     * The checks currently use forums_users, the default install of MyBB will make it mybb_users. Please make sure that they coincide correctly.
     * $link refers to your MySQL login... **NOT** your cPanel login... didn't think I'd have to put that in here
 
-4. In usercheck_get.php, modify the usergroup numbers to match your forums.
+4. Go to your MyBB admin panel -> configuration -> general configuration.
 
-5. Go to your MyBB admin panel -> configuration -> general configuration.
+5. Set the CAPTCHA field to none.
 
-6. Set the CAPTCHA field to none.
+6. Now to go configuration -> login and registration options
 
-7. Now to go configuration -> login and registration options
-
-8. Set "Number of times to allow failed logins" to 0
+7. Set "Number of times to allow failed logins" to 0
 
 ## Loader VB
 
@@ -152,7 +150,9 @@ Upload the following files to your webserver:
 
 6. Change the domains on the following lines: 203, 222, 223, 237, 238, 270-272, 280-282, 328.
 
-7. If you want the automatic update function, uncomment out Timer2_tick's sub. PLEASE NOTE some users are experiencing issues where they cannot get out of an auto update loop. I am too lazy to fix this issue, I was given code but I did not have the issue myself to start so I could not confirm if it was a fix or not. If you are stuck in an update loop, just take 15 minutes and try and fix it instead of spamming my Discord server, snapchat and steam.
+7. Change the group numbers to match your website
+
+8. If you want the automatic update function, uncomment out Timer2_tick's sub. PLEASE NOTE some users are experiencing issues where they cannot get out of an auto update loop. I am too lazy to fix this issue, I was given code but I did not have the issue myself to start so I could not confirm if it was a fix or not. If you are stuck in an update loop, just take 15 minutes and try and fix it instead of spamming my Discord server, snapchat and steam.
 
 **Goto Form2.vb**
 
@@ -163,6 +163,8 @@ Upload the following files to your webserver:
 1. Change any instance of "localhost" with your domain.
 
 2. Add or remove whatever cheats you want to support (Currently lines 24-28 BUT is not limited to only 5)
+
+3. Change the group numbers to match your website
 
 **Goto Form5.vb**
 
