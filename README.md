@@ -25,8 +25,6 @@ Have some code you wanna add to the repo? Let me know through an email (thaisenb
     * [Requirements](#requirements)
 
 - Setup
-    * [Video Tutorial](https://github.com/ThaisenPM/Cheat-Loader#video-tutorial)
-
     * [SQL Setup](#sql)
 
     * [Web Files](#web)
@@ -81,10 +79,6 @@ Have some code you wanna add to the repo? Let me know through an email (thaisenb
 - Some SUPER BASIC knowledge of PHP and SQL
 
 - Some decent knowledge of VB.NET
-
-## Video tutorial
-
-Coming soon!
 
 ## SQL
 
