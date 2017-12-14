@@ -1,4 +1,9 @@
+# This project is out of date and no longer supported
+
+Please check out [Version 2.0 of my loader here](https://github.com/ThaisenPM/Cheat-Loader-CSGO-2.0)
+
 # Nova Hook | Open Source VB.NET Cheat Loader
+
 
 Hello! My name is Thaisen! I got bored so I started to build a basic cheat loader for whatever you need! The loader currently works off of MyBB for logging in, is HWID locked and validates the user's rank upon logging in. You can setup multiple ranks being allowed, blocking banned users from accessing the program and blocking users who do not fit the needed rank from accessing the program.
 
